@@ -1,0 +1,76 @@
+:root {
+	--back_color: red; /* Default value */
+	--heartbeat: 0s; /* Default value */
+}
+
+body {
+	margin: 0;
+	text-align: center;
+}
+
+/* Style the header */
+header {
+    background-color: #666;
+    padding: 5px;
+    text-align: center;
+    color: white;
+}
+
+section {
+	padding: 5px;
+}
+
+/* Style the footer */
+footer {
+    background-color: #777;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+
+div.grid1 {
+	background-color: var(--back_color);
+	animation-name: ani_grid1;
+    animation-duration: 4s;
+}
+
+div.grid2 {
+	background-color: green;
+	animation-name: ani_grid2;
+	animation-duration: 4s;
+	animation-iteration-count: infinite;
+}
+
+div.grid3 {
+	background-color: blue;
+}
+
+div.grid4 {
+	background-color: yellow;
+}
+
+/* CSS transform standard syntax */
+@keyframes ani_grid1 {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+
+@keyframes ani_grid2 {
+	0% {background-color: black;}
+	20% {background-color: green;}
+	40% {background-color: yellow;}
+	60% {background-color: red;}
+	80% {background-color: blue;}
+	100% {background-color: green;}
+}
+
+.fas {
+	animation-name: heartbeat;
+    animation-duration: var(--heartbeat);
+	animation-iteration-count: infinite;
+}
+
+@keyframes heartbeat {
+	from {transform: scale(1,1); color: white;}
+	to {transform: scale(1.2,1.2); color: red;}
+}

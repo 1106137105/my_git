@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS RWD</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+	margin: 0;
+	text-align: center;
+}
+
+/* Style the header */
+header {
+    background-color: #666;
+    padding: 5px;
+    text-align: center;
+    color: white;
+}
+
+section {
+	padding: 5px;
+}
+
+/* Style the footer */
+footer {
+    background-color: #777;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+
+div.grid1 {
+	background-color: pink;
+	animation-name: ani_grid1;
+    animation-duration: 4s;
+}
+
+div.grid2 {
+	background-color: green;
+	animation-name: ani_grid2;
+	animation-duration: 4s;
+	animation-iteration-count: infinite;
+}
+
+div.grid3 {
+	background-color: blue;
+}
+
+div.grid4 {
+	background-color: yellow;
+}
+
+/* CSS transform standard syntax */
+@keyframes ani_grid1 {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+
+@keyframes ani_grid2 {
+	0% {background-color: black;}
+	20% {background-color: green;}
+	40% {background-color: yellow;}
+	60% {background-color: red;}
+	80% {background-color: blue;}
+	100% {background-color: green;}
+}
+
+.fas {
+	animation-name: heartbeat;
+    animation-duration: var(--heartbeat);
+	animation-iteration-count: infinite;
+}
+
+@keyframes heartbeat {
+	from {transform: scale(1,1); color: white;}
+	to {transform: scale(1.2,1.2); color: red;}
+}
+
+div.container {
+ width: 210px;
+ height: 360px;
+ margin: 0px auto;
+}
+
+div.grid {
+ width: 200px;
+ height: 80px;
+ margin: 5px;
+ line-height: 80px;
+ box-shadow: 5px 5px 5px gray;
+ font-size: 10px;
+}
+</style>
+</head>
+
+<body>
+<header>
+  <h1>RWD, CSS 動畫和 CSS 變數</h1>
+</header>
+
+<section>
+	<div class="container">
+		<div class="grid grid1">Grid_1</div>
+		<div class="grid grid2">Grid_2</div>
+		<div class="grid grid3">Grid_3</div>
+		<div class="grid grid4">Grid_4</div>
+	</div>
+</section>
+
+<footer>
+  <p>APP Course Example 2019.10.17</p>
+</footer>
+
+</body>
+</html>
