@@ -2,6 +2,7 @@ div.container {
  width: 210px;
  height: 360px;
  margin: 0px auto;
+ background-color: red; 
 }
 
 div.grid {
