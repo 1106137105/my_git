@@ -14,7 +14,7 @@
 
     <script>
         jQuery(document).ready(function(){
-            var jqxhr = $.getJSON("https://cloud.culture.tw/frontsite/trans/SearchShowAction.do?method=doFindTypeJ&category=1", function() {
+            var jqxhr = $.getJSON("https://data.ntpc.gov.tw/od/data/api/8F29E30A-02B4-460B-B2E1-C1814163BBDE?$format=json", function() {
                 console.log("success");
             })
             .done(function(arr) {
@@ -25,9 +25,9 @@
             
                 for(i = 0; i < arr.length; i++) {
                     out += '<tr><th scope="row">' + i + '</th><td>' +
-                    arr[i].title + "</td><td>" +
-                    arr[i].sourceWebName + "</td><td>(" +
-                    arr[i].startDate + " ~ " + arr[i].endDate + ")</td></tr>";
+                    arr[i].CHR_ID + "</td><td>" +
+                    arr[i].CHR_Area + "</td><td>(" +
+                    arr[i].CHR_Name + " ~ " + arr[i].endDate + ")</td></tr>";
                 }
                 out += "</tbody></table>";
                 document.getElementById("data_grid").innerHTML = out;
