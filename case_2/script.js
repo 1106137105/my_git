@@ -33,7 +33,11 @@ $(document).ready(function() {
 			$("#day4").text(time_3);
 			
 			//天氣概況 #weather-description
-			var weather_1 = arr.records.locations[0].location[0].weatherElement[5].time[0].elementValue[1].value;
+			var weather_1 = arr.records.locations[0].location[0].weatherElement[6].time[0].elementValue[0].value;
+			var weather_value_1 = arr.records.locations[0].location[0].weatherElement[5].time[0].elementValue[1].value;
+			var weather_value_2 = arr.records.locations[0].location[0].weatherElement[5].time[0].elementValue[1].value;
+			var weather_value_3 = arr.records.locations[0].location[0].weatherElement[5].time[0].elementValue[1].value;
+
 			// var weather_value_1 = arr.records.location[0].weatherElement[0].time[0].parameter.parameterValue;
 			// var weather_value_2 = arr.records.location[0].weatherElement[0].time[1].parameter.parameterValue;
 			// var weather_value_3 = arr.records.location[0].weatherElement[0].time[2].parameter.parameterValue;
@@ -51,20 +55,17 @@ $(document).ready(function() {
 			skycons.play();
 			
 			//舒適度 #feels-like
-			var fl_1 = arr.records.location[0].weatherElement[3].time[0].parameter.parameterName;
+			var fl_1 = arr.records.locations[0].location[0].weatherElement[5].time[0].elementValue[1].value;
 			$("#feels-like").text(fl_1);
 			
 			//溫度 #temp #day2-high-low, day3-high-low, day4-high-low
-			var minT_1 = arr.records.location[0].weatherElement[2].time[0].parameter.parameterName;
-			var minT_2 = arr.records.location[0].weatherElement[2].time[1].parameter.parameterName;
-			var minT_3 = arr.records.location[0].weatherElement[2].time[2].parameter.parameterName;
-			var maxT_1 = arr.records.location[0].weatherElement[4].time[0].parameter.parameterName;
-			var maxT_2 = arr.records.location[0].weatherElement[4].time[1].parameter.parameterName;
-			var maxT_3 = arr.records.location[0].weatherElement[4].time[2].parameter.parameterName;
-			$("#temp").text(Math.round((Number(minT_1) + Number(maxT_1)) / 2) + "°");
-			$("#day2-high-low").text(minT_1 + "~" + maxT_1 + "°C");
-			$("#day3-high-low").text(minT_2 + "~" + maxT_2 + "°C");
-			$("#day4-high-low").text(minT_3 + "~" + maxT_3 + "°C");
+			var minT_1 = arr.records.locations[0].location[0].weatherElement[3].time[0].elementValue[0].value;
+			var minT_2 = arr.records.locations[0].location[0].weatherElement[3].time[1].elementValue[0].value;
+			var minT_3 = arr.records.locations[0].location[0].weatherElement[3].time[2].elementValue[0].value;
+			$("#temp").text(minT_1);
+			$("#day2-high-low").text(minT_1+"°C");
+			$("#day3-high-low").text(minT_2+"°C");
+			$("#day4-high-low").text(minT_3+"°C");
 			
 			//降雨機率 #day2-precip, day3-precip, day4-precip
 			var rain_1 = arr.records.location[0].weatherElement[1].time[0].parameter.parameterName;
