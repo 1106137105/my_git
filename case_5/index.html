@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- jQuery Mobile include -->
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    
+    <!-- my Javacript Functions -->
+    <script src="js/case5.js"></script>
+    
+    <!-- Google Map API -->
+    <script async defer src="https://maps.google.com/maps/api/js?libraries=places"></script>
+    <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAApcO--oiSroWssna9-5iSsVS9m7rA2WQ&libraries=places"></script> -->
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+    
+    <!-- QR Code Scanner: schmich/instascan -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/3.3.3/adapter.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
+    <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+</head>
+<body>
+
+<!-- 這是第1頁 Home -->
+<div data-role="page" id="page1" data-theme="a">
+    <div data-role="header">
+        <a href="#page2" class="ui-btn ui-corner-all ui-shadow ui-icon-arrow-u-r ui-btn-icon-right">第2頁</a>
+        <h1>JQuery Mobile Web App-Home</h1>
+        <a href="#page_o1" class="ui-btn ui-corner-all ui-shadow ui-icon-gear ui-btn-icon-right">Option</a>
+        <div data-role="navbar">
+		    <ul>
+		        <li><a href="#pageF1" id="p1_b1" data-transition = "turn" data-icon="home">功能1-取得JSON資料</a></li>
+		        <li><a href="#pageF2" data-transition = "flip" data-icon="arrow-r">功能2-取得定位位置</a></li>
+		        <li><a href="#pageF3" data-transition = "flow" data-icon="search">功能3-標註JSON位置</a></li>
+		        <li><a href="#pageF4" data-transition = "flow" data-icon="search">功能4-標註JSON群組呈現</a></li>
+         		<li><a href="#pageF5" data-transition = "flow" data-icon="search">功能5-標註JSON數量呈現</a></li>
+         		<li><a href="#pageF6" data-transition = "flow" data-icon="search">功能6-標註JSON距離控制</a></li>
+         		<li><a href="#pageF7" data-transition = "flow" data-icon="search">功能7-Google地理資料庫</a></li>
+         		<li><a href="#pageF8" data-transition = "flow" data-icon="search">功能8-QR Code Scanner</a></li>
+		    </ul>
+        </div>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <p>Home-以Navigation Bars按鈕呈現</p>
+    </div>
+
+    <div data-role="footer">
+        <h1>APP 課程案例</h1>
+    </div>
+</div>
+
+<!-- #page_o1 設定 Option page -->
+<div data-role="page" data-dialog="true" id="page_o1">
+    <div data-role="header">
+        <h1>App 版本介紹</h1>
+    </div>
+    
+    <div data-role="main" class="ui-content">
+        <img src="http://www.pwrnewmedia.com/2013/soleil_provence/originalfiles/sun%20icon.png" alt="Smiley face" height="90" width="90"><br>
+        <p>This app example is composed by Sean Lu.</p>
+        <a href="#" class="ui-btn" data-rel="back">Go back</a>
+    </div>
+    
+    <div data-role="footer">
+	    <h1>APP 課程案例</h1>
+        <h2>seaniwei@yahoo.com.tw</h2>
+    </div>
+</div>
+
+<!-- 這是第2頁 -->
+<div data-role="page" id="page2" data-theme="b">
+    <div data-role="header">
+        <a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" data-direction="reverse">Home</a>
+        <h1>JQuery Mobile Web App-第二頁</h1>
+        <a href="#page_o1" class="ui-btn ui-corner-all ui-shadow ui-icon-gear ui-btn-icon-right">設定</a>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <p>第二頁-以垂直按鈕呈現</p>
+        <a href="#pageF1" class="ui-btn ui-corner-all ui-shadow" data-transition = "turn">功能1-取得JSON資料</a>
+        <a href="#pageF2" class="ui-btn ui-corner-all ui-shadow" data-transition = "flip">功能2-取得定位位置</a>
+        <a href="#pageF3" class="ui-btn ui-corner-all ui-shadow" data-transition = "flow">功能3-標註JSON位置</a>
+        <a href="#pageF4" class="ui-btn ui-corner-all ui-shadow" data-transition = "flow">功能4-標註JSON群組呈現</a>
+        <a href="#pageF5" class="ui-btn ui-corner-all ui-shadow" data-transition = "flow">功能5-標註JSON數量呈現</a>
+        <a href="#pageF6" class="ui-btn ui-corner-all ui-shadow" data-transition = "flow">功能6-標註JSON距離控制</a>
+        <a href="#pageF7" class="ui-btn ui-corner-all ui-shadow" data-transition = "flow">功能7-Google地理資料庫</a>
+        <a href="#pageF8" class="ui-btn ui-corner-all ui-shadow" data-transition = "flow">功能8-QR Code Scanner</a>
+    </div>
+
+    <div data-role="footer">
+        <h1>APP 課程案例</h1>
+    </div>
+</div>
+
+<!-- 這是 pageF1 功能1-取得JSON資料 -->
+<div data-role="page" id="pageF1">
+    <div data-role="header">
+        <a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+        <h1>Jquery Mobile Web App 範例</h1>
+        <a href="#page_o1" class="ui-btn ui-corner-all ui-shadow ui-icon-gear ui-btn-icon-right">設定</a>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <p>我的JSON資料</p>
+        <div id="pf1_d1"></div>
+    </div>
+
+    <div data-role="footer">
+        <h1>APP 課程案例</h1>
+    </div>
+</div>
+
+<!-- 這是 pageF2 功能2-取得地理位置 geolocation -->
+<div data-role="page" id="pageF2">
+    <div data-role="header">
+        <a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+        <h1>Jquery Mobile Web App 範例</h1>
+        <a href="#page_o1" class="ui-btn ui-corner-all ui-shadow ui-icon-gear ui-btn-icon-right">設定</a>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <p>目前位置</p>
+        <div id="pf2_d1"></div>
+        <div id="pf2_d2"></div>
+        <a href="#" id="pf2_b1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">取得位置</a>
+    </div>
+
+    <div data-role="footer">
+        <h1>APP 課程案例</h1>
+    </div>
+</div>
+
+<!-- 這是 pageF3 功能3-標記JOSN位置 -->
+<div data-role="page" id="pageF3">
+    <div data-role="header">
+        <a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+        <h1>Jquery Mobile Web App 範例</h1>
+        <a href="#page_o1" class="ui-btn ui-corner-all ui-shadow ui-icon-gear ui-btn-icon-right">設定</a>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <p>JSON資料標註在地圖上</p>
+        <div id="pf3_d1"></div>
+        <div id="pf3_d2"></div>
+        <a href="#" id="pf3_b1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">標註JSON資料</a>
+    </div>
+
+    <div data-role="footer">
+        <h1>APP 課程案例</h1>
+    </div>
+</div>
+
+<!-- 這是 pageF4 功能4-標註JSON群組呈現 -->
+<div data-role="page" id="pageF4">
+    <div data-role="header">
+        <a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+        <h1>Jquery Mobile Web App 範例</h1>
+        <a href="#page_o1" class="ui-btn ui-corner-all ui-shadow ui-icon-gear ui-btn-icon-right">設定</a>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <p>JSON資料標註以群組呈現</p>
+        <div id="pf4_d1"></div>
+        <div id="pf4_d2"></div>
+        <a href="#" id="pf4_b1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">標註JSON資料</a>
+    </div>
+
+    <div data-role="footer">
+        <h1>APP 課程案例</h1>
+    </div>
+</div>
+
+<!-- 這是 pageF5 功能5-標註JSON數量呈現 -->
+<div data-role="page" id="pageF5">
+    <div data-role="header">
+        <a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+        <h1>Jquery Mobile Web App 範例</h1>
+        <a href="#page_o1" class="ui-btn ui-corner-all ui-shadow ui-icon-gear ui-btn-icon-right">設定</a>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <p>JSON資料標註以數量呈現</p>
+        <div id="pf5_d1"></div>
+        <div id="pf5_d2"></div>
+        <a href="#" id="pf5_b1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">標註JSON資料</a>
+    </div>
+
+    <div data-role="footer">
+        <h1>APP 課程案例</h1>
+    </div>
+</div>
+
+<!-- 這是 pageF6 功能6-標註JSON距離控制 -->
+<div data-role="page" id="pageF6">
+    <div data-role="header">
+        <a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+        <h1>Jquery Mobile Web App 範例</h1>
+        <a href="#page_o1" class="ui-btn ui-corner-all ui-shadow ui-icon-gear ui-btn-icon-right">設定</a>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <p>JSON資料標註以距離控制顯示景點</p>
+        <label for="pf6_dis">距離(公里):</label>
+        <input type="range" id="pf6_dis" value="10" min="0" max="200" data-highlight="true" data-show-value="true">
+        <a href="#" id="pf6_b1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">標註JSON資料</a>
+        <div id="pf6_d1"></div>
+        <div id="pf6_d2"></div>
+    </div>
+
+    <div data-role="footer">
+        <h1>APP 課程案例</h1>
+    </div>
+</div>
+
+<!-- 這是 pageF7 功能7-Google地理資料庫 -->
+<div data-role="page" id="pageF7">
+    <div data-role="header">
+        <a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+        <h1>Jquery Mobile Web App 範例</h1>
+        <a href="#page_o1" class="ui-btn ui-corner-all ui-shadow ui-icon-gear ui-btn-icon-right">設定</a>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <p>距離顯示Google地理資料庫</p>
+        <label for="pf7_dis">距離(公里):</label>
+        <input type="range" id="pf7_dis" value="10" min="0" max="20" data-highlight="true" data-show-value="true">
+        <a href="#" id="pf7_b1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">取得Google地理資料庫</a>
+        <div id="pf7_d1"></div>
+        <div id="pf7_d2"></div>
+    </div>
+
+    <div data-role="footer">
+        <h1>APP 課程案例</h1>
+    </div>
+</div>
+
+<!-- 這是 pageF8 功能8-QR Code Scanner -->
+<div data-role="page" id="pageF8">
+    <div data-role="header">
+        <a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+        <h1>Jquery Mobile Web App-QR code reader</h1>
+        <a href="#page_o1" class="ui-btn ui-corner-all ui-shadow ui-icon-gear ui-btn-icon-right">設定</a>
+    </div>
+
+    <div data-role="main" class="ui-content">
+    	<a href="#" id="pf8_b1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">開啟 Scanner</a>
+		<div id="qrcodeapp">
+		<h2>Cameras</h2>
+		<ul>
+			<li v-if="cameras.length === 0" class="empty">No cameras found</li>
+			<li v-for="camera in cameras">
+			<span v-if="camera.id == activeCameraId" :title="formatName(camera.name)" class="active">{{ formatName(camera.name) }}</span>
+			<span v-if="camera.id != activeCameraId" :title="formatName(camera.name)">
+			<a @click.stop="selectCamera(camera)">{{ formatName(camera.name) }}</a>
+			</span>
+			</li>
+		</ul>
+		<h2>Scans</h2>
+		<ul v-if="scans.length === 0">
+			<li class="empty">No scans yet</li>
+		</ul>
+		<transition-group name="scans" tag="ul">
+			<li v-for="scan in scans" :key="scan.date" :title="scan.content">{{ scan.content }}</li>
+		</transition-group>
+		<div class="preview-container">
+        	<video id="preview"></video>
+      	</div>
+      	</div>
+    </div>
+    
+    <div data-role="footer">
+        <h1>APP 課程案例</h1>
+    </div>
+</div>
+
+</body>
+</html>
